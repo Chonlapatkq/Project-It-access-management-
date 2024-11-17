@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Navbar (แถบด้านบน) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav v-if="!isLoginPage" class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <router-link to="/" class="navbar-brand">Digital IT Asset Management</router-link>
         <button
@@ -37,14 +37,12 @@
             </li>
           </ul>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-            <input
-              type="search"
-              class="form-control form-control-dark text-bg-dark"
-              placeholder="Search here..."
-              aria-label="Search"
-            />
-          </form>
+         <!-- Content (เนื้อหาหลัก) -->
+    <div :class="{'content': true, 'content-shifted': sidebarOpen}">
+      <button class="btn btn-dark" @click="toggleSidebar" id="toggle-btn">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
 
           <!-- Login/Logout Button (แสดงปุ่มตามสถานะการล็อกอิน) -->
           <div class="navbar-nav ms-auto">
@@ -64,7 +62,7 @@
     </nav>
 
     <!-- Sidebar (แถบด้านข้าง) -->
-    <div :class="{'sidebar': true, 'sidebar-open': sidebarOpen}">
+    <div v-if="!isLoginPage" :class="{'sidebar': true, 'sidebar-open': sidebarOpen}">
       <ul class="list-unstyled">
         <li class="m-2">
           <router-link to="/" class="text-white"><i class="bi bi-house-door"></i></router-link>
@@ -91,14 +89,12 @@
           <router-link to="/maintenance" class="text-white"><i class="bi bi-tools"></i></router-link>
         </li>
       </ul>
+
+
+      
     </div>
 
-    <!-- Content (เนื้อหาหลัก) -->
-    <div :class="{'content': true, 'content-shifted': sidebarOpen}">
-      <button class="btn btn-dark" @click="toggleSidebar" id="toggle-btn">
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
+    
   </div>
 </template>
 
@@ -111,6 +107,12 @@ export default {
       username: '', // ชื่อผู้ใช้
       isLoggedIn: false, // สถานะการล็อกอิน
     };
+  },
+  computed: {
+    // ตรวจสอบว่าหน้าเป็น /login หรือไม่
+    isLoginPage() {
+      return this.$route.path === '/login';
+    },
   },
   mounted() {
     // ตรวจสอบสถานะการล็อกอินเมื่อหน้าโหลด
@@ -151,7 +153,7 @@ export default {
 #toggle-btn {
   position: absolute;
   top: 40px; /* ปรับตำแหน่งปุ่ม */
-  left: 150px;
+  left: 120px;
   z-index: 1050;
   font-size: 0.5rem; /* ลดขนาดฟอนต์ */
   padding: 2.5px 5px; /* ลดขนาดปุ่ม */
@@ -161,8 +163,8 @@ export default {
 .sidebar {
   position: fixed;
   top: 0;
-  left: -200px; /* ลดขนาด Sidebar */
-  width: 80px; /* ปรับขนาด Sidebar */
+  left: -300px; /* ลดขนาด Sidebar */
+  width: 50px; /* ปรับขนาด Sidebar */
   height: 100%;
   background-color: black;
   color: white;
@@ -187,7 +189,7 @@ export default {
 .sidebar li a {
   text-decoration: none;
   color: white;
-  font-size: 1.5rem; /* เพิ่มขนาดไอคอน */
+  font-size: 1.4rem; /* เพิ่มขนาดไอคอน */
 }
 
 .sidebar li a:hover {
