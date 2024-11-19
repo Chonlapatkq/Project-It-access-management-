@@ -17,6 +17,11 @@ const routes = [
   { path: '/user-management', component: UserManagement },
   { path: '/documentation', component: DocumentationManagement },
   { path: '/login', component: Login }, // เพิ่มเส้นทางสำหรับหน้า Login
+  {
+    path: '/edit-product',
+    name: 'EditProduct',
+    component: Dashboard,
+  },
 ];
 
 const router = createRouter({
