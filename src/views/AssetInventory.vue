@@ -66,17 +66,6 @@
             />
           </div>
 
-          <!-- Image Upload -->
-          <div class="col-md-6">
-            <label for="productImage" class="form-label">เพิ่มรูปภาพ</label>
-            <input
-              type="file"
-              id="productImage"
-              class="form-control"
-              @change="handleImageUpload"
-              accept="image/*"
-            />
-          </div>
         </div>
 
         <div class="text-center mt-4">
@@ -98,7 +87,6 @@ export default {
         name: "",
         price: "",
         model: "",
-        image: null,
       },
       productIndex: null,
     };
@@ -109,6 +97,7 @@ export default {
       this.newProduct = { ...product };
       this.productIndex = this.$route.query.index;
     }
+
   },
   methods: {
 // ฟังก์ชันจัดการการเพิ่มและแก้ไขสินค้า
@@ -147,3 +136,4 @@ handleImageUpload(event) {
 
 };
 </script>
+

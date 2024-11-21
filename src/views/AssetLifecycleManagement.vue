@@ -10,8 +10,7 @@
           <th>ชื่อสินค้า</th>
           <th>ราคา (บาท)</th>
           <th>รุ่นสินค้า</th>
-          <th>รูปภาพ</th>
-          <th>การจัดการ</th>
+         
         </tr>
       </thead>
       <tbody>
@@ -22,10 +21,6 @@
           <td>{{ product.name }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.model }}</td>
-          <td>
-            <img v-if="product.image" :src="product.image" alt="Product Image" class="img-thumbnail" style="width: 100px;" />
-            <span v-else>ไม่มีรูป</span>
-          </td>
           <td>
             <!-- แสดงปุ่ม "แก้ไข" และ "ลบ" เฉพาะเมื่อผู้ใช้ล็อกอิน -->
             <button v-if="isLoggedIn" class="btn btn-warning btn-sm" @click="editProduct(index)">แก้ไข</button>

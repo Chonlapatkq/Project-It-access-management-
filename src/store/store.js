@@ -1,7 +1,10 @@
-// store.js
 import { createStore } from 'vuex';
+import productStore from './productStore'; // import productStore
 
 export default createStore({
+  modules: {
+    product: productStore, // เชื่อมโยง productStore เข้ากับ store หลัก
+  },
   state: {
     isLoggedIn: false,
     username: ''
