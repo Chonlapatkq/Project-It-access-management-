@@ -17,25 +17,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/assets" class="nav-link">Assets</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/lifecycle" class="nav-link">Lifecycle</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/tracking" class="nav-link">Tracking</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/user-management" class="nav-link">User Management</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/documentation" class="nav-link">Documentation</router-link>
-            </li>
-          </ul>
+  <li class="nav-item">
+    <router-link to="/" class="nav-link">Home</router-link>
+  </li>
+  <!-- แสดงเมนูอื่นเมื่อผู้ใช้ล็อกอิน -->
+  <template v-if="isLoggedIn">
+    <li class="nav-item">
+      <router-link to="/assets" class="nav-link">Assets</router-link>
+    </li>
+    <li class="nav-item">
+      <router-link to="/lifecycle" class="nav-link">Lifecycle</router-link>
+    </li>
+    <li class="nav-item">
+      <router-link to="/tracking" class="nav-link">Tracking</router-link>
+    </li>
+    <li class="nav-item">
+      <router-link to="/user-management" class="nav-link">User Management</router-link>
+    </li>
+    <li class="nav-item">
+      <router-link to="/documentation" class="nav-link">Documentation</router-link>
+    </li>
+  </template>
+</ul>
+
 
          <!-- Content (เนื้อหาหลัก) -->
     <div :class="{'content': true, 'content-shifted': sidebarOpen}">

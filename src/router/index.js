@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/edit-product',
     name: 'EditProduct',
-    component: Dashboard,
+    component: AssetInventory,
   },
 ];
 
