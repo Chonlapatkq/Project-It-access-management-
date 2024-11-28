@@ -88,3 +88,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.table-bordered {
+  border: 2px solid black !important; /* ขอบของตาราง */
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 2px solid black !important; /* ขอบของแต่ละเซลล์ */
+}
+</style>

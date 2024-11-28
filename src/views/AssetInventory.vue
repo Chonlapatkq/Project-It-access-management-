@@ -1,6 +1,7 @@
 <template>
-  <div class="container mt-5">
-    <h1 class="text-center mb-4">ระบบลงทะเบียนสินค้า</h1>
+  <div class="background-image">
+    <div class="assetinventory-container">
+      <h1 class="text-center mb-4 text-white">ระบบลงทะเบียนสินค้า</h1> <!-- เปลี่ยนสีข้อความเป็นขาว -->
 
     <div class="card p-4 mb-4">
       <h4 class="card-title mb-3">{{ productIndex !== null ? 'แก้ไขสินค้า' : 'เพิ่มสินค้าใหม่' }}</h4>
@@ -74,11 +75,12 @@
       </form>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Dashboard",
+  name: "AssetInventory",
   data() {
     return {
       newProduct: {
@@ -97,43 +99,118 @@ export default {
       this.newProduct = { ...product };
       this.productIndex = this.$route.query.index;
     }
-
   },
   methods: {
-// ฟังก์ชันจัดการการเพิ่มและแก้ไขสินค้า
-addOrEditProduct() {
-  const products = JSON.parse(localStorage.getItem('products')) || [];
+    addOrEditProduct() {
+      const products = JSON.parse(localStorage.getItem('products')) || [];
+      let imageURL = null;
+      if (this.newProduct.image && this.newProduct.image instanceof File) {
+        imageURL = URL.createObjectURL(this.newProduct.image);
+      }
 
-  // ตรวจสอบว่า image เป็นไฟล์จริงๆ ก่อนที่จะสร้าง URL
-  let imageURL = null;
-  if (this.newProduct.image && this.newProduct.image instanceof File) {
-    imageURL = URL.createObjectURL(this.newProduct.image);
-  }
+      if (this.productIndex === null) {
+        products.push({ ...this.newProduct, image: imageURL });
+      } else {
+        products[this.productIndex] = { ...this.newProduct, image: imageURL };
+      }
 
-  // ถ้าเป็นการเพิ่มสินค้าใหม่
-  if (this.productIndex === null) {
-    products.push({ ...this.newProduct, image: imageURL });
-  } else {
-    // ถ้าเป็นการแก้ไขสินค้า
-    products[this.productIndex] = { ...this.newProduct, image: imageURL };
-  }
+      localStorage.setItem('products', JSON.stringify(products));
+      this.$router.push('/lifecycle');
+    },
 
-  // บันทึกข้อมูลใน localStorage
-  localStorage.setItem('products', JSON.stringify(products));
-  this.$router.push('/lifecycle');
-},
-
-// ฟังก์ชันจัดการการอัพโหลดรูปภาพ
-handleImageUpload(event) {
-  const file = event.target.files[0];
-  if (file && file instanceof File) {
-    this.newProduct.image = file;
-  }
-},
-
-// ฟังก์ชันอื่นๆ ที่คุณต้องการ
-}
-
+   
+  },
 };
 </script>
 
+<style scoped>
+/* ให้ body และ html ครอบคลุมหน้าจอทั้งหมดโดยไม่มี margin หรือ padding */
+html, body {
+  height: 100%;       /* ให้ความสูงของทั้ง html และ body ครอบคลุมหน้าจอ */
+  margin: 0;          /* ลบช่องว่างจาก margin */
+  padding: 0;         /* ลบช่องว่างจาก padding */
+  overflow: auto;     /* ให้สามารถเลื่อนเนื้อหาภายในได้ */
+  background-color: transparent;  /* แน่ใจว่าพื้นหลังของ body เป็นโปร่งใส */
+  box-sizing: border-box;  /* ให้ box-sizing ใช้ border-box เพื่อรวม border และ padding ไว้ภายในขนาด */
+}
+
+/* การตั้งค่าภาพพื้นหลัง */
+.background-image {
+  position: absolute;  /* ใช้ absolute แทน fixed เพื่อไม่ให้ภาพติดกับหน้าจอ */
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;     /* ให้ความสูงของภาพไม่ต่ำกว่าความสูงของหน้าจอ */
+  background-image: url('@/assets/bc.jpg');
+  background-size: cover;  /* ให้ภาพครอบคลุมพื้นที่ของหน้าจอ */
+  background-position: center center;  /* ตั้งตำแหน่งภาพไว้ที่กลาง */
+  background-repeat: no-repeat;  /* ห้ามซ้ำภาพ */
+  z-index: -1;      /* ให้ภาพอยู่ด้านหลังเนื้อหาของหน้า */
+}
+ 
+/* เฉพาะหน้า AssetInventory */
+.assetinventory-container {
+  padding: 25px;
+  min-height: 100vh;
+  color: white;
+  position: relative;
+  z-index: 1;
+  margin-top: 80px;
+}
+
+/* การ์ดรูปแบบ (ปรับความโปร่งใสของการ์ด) */
+.card {
+  background-color: rgba(255, 255, 255, 0.7); /* ทำให้การ์ดมีความโปร่งใส */
+  border-radius: 10px;
+  border: none;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* เพิ่มเงาให้การ์ด */
+  max-width: 550px;
+  margin: auto;
+}
+
+/* ฟอร์ม */
+.form-label {
+  color: #333;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.9); /* ทำให้พื้นหลังของ input โปร่งใส */
+}
+
+/* ปุ่ม "บันทึก" */
+button {
+  border: none;
+  padding: 10px 20px;
+  background-color: #000000; /* สีพื้นหลังเป็นสีดำ */
+  color: white; /* ตัวหนังสือสีขาว */
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s; /* เพิ่ม transition สำหรับสีและเงา */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ปุ่ม */
+}
+
+button:hover {
+  background-color: #333333; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* เพิ่มขนาดเงาเมื่อ hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* เพิ่มเงาให้กับหัวข้อ */
+h1.text-white {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ข้อความ */
+}
+
+
+</style>
