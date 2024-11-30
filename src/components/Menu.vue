@@ -28,15 +28,6 @@
     <li class="nav-item">
       <router-link to="/lifecycle" class="nav-link">Lifecycle</router-link>
     </li>
-    <li class="nav-item">
-      <router-link to="/tracking" class="nav-link">Tracking</router-link>
-    </li>
-    <li class="nav-item">
-      <router-link to="/user-management" class="nav-link">User Management</router-link>
-    </li>
-    <li class="nav-item">
-      <router-link to="/documentation" class="nav-link">Documentation</router-link>
-    </li>
   </template>
 </ul>
 

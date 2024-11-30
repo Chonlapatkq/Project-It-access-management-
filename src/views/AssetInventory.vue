@@ -1,7 +1,7 @@
 <template>
   <div class="background-image">
     <div class="assetinventory-container">
-      <h1 class="text-center mb-4 text-white">ระบบลงทะเบียนสินค้า</h1> <!-- เปลี่ยนสีข้อความเป็นขาว -->
+      <h1 class="text-center mb-4">ระบบลงทะเบียนสินค้า</h1> <!-- เปลี่ยนสีข้อความเป็นขาว -->
 
     <div class="card p-4 mb-4">
       <h4 class="card-title mb-3">{{ productIndex !== null ? 'แก้ไขสินค้า' : 'เพิ่มสินค้าใหม่' }}</h4>
@@ -141,7 +141,7 @@ html, body {
   left: 0;
   width: 100%;
   min-height: 100%;     /* ให้ความสูงของภาพไม่ต่ำกว่าความสูงของหน้าจอ */
-  background-image: url('@/assets/bc.jpg');
+  background-image: url('@/assets/GG.jpg');
   background-size: cover;  /* ให้ภาพครอบคลุมพื้นที่ของหน้าจอ */
   background-position: center center;  /* ตั้งตำแหน่งภาพไว้ที่กลาง */
   background-repeat: no-repeat;  /* ห้ามซ้ำภาพ */
@@ -207,10 +207,11 @@ button:focus {
   outline: none;
 }
 
-/* เพิ่มเงาให้กับหัวข้อ */
-h1.text-white {
+h1 {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ข้อความ */
+  color: black; /* เปลี่ยนสีข้อความเป็นสีดำ */
 }
+
 
 
 </style>

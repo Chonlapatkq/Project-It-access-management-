@@ -3,27 +3,28 @@
     <div class="container mt-5">
       <h1 class="text-center mb-4 text-black">รายการสินค้า</h1>
 
-      <!-- การ์ดแสดงข้อมูลราคาสินค้า -->
       <div class="row mb-4">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header text-center">ข้อมูลราคา</div>
-            <div class="card-body">
-              <canvas id="pricePieChart"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <!-- การ์ดแสดงข้อมูลจำนวนสินค้า -->
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header text-center">ข้อมูลจำนวนสินค้า</div>
-            <div class="card-body">
-              <canvas id="quantityPieChart"></canvas>
-            </div>
-          </div>
-        </div>
+  <!-- การ์ดแสดงข้อมูลราคาสินค้า -->
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header text-center">ข้อมูลราคา</div>
+      <div class="card-body chart-container">
+        <canvas id="pricePieChart" style="max-width: 400px; max-height: 400px;"></canvas>
       </div>
+    </div>
+  </div>
+
+  <!-- การ์ดแสดงข้อมูลจำนวนสินค้า -->
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header text-center">ข้อมูลจำนวนสินค้า</div>
+      <div class="card-body chart-container">
+        <canvas id="quantityPieChart" style="max-width: 400px; max-height: 400px;"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       <!-- ตารางแสดงสินค้าตามลำดับ -->
       <div v-if="products.length > 0">
@@ -179,7 +180,7 @@ html, body {
   left: 0;
   width: 100%;
   min-height: 100%;     /* ให้ความสูงของภาพไม่ต่ำกว่าความสูงของหน้าจอ */
-  background-image: url('@/assets/bf.jpg');
+  background-image: url('@/assets/GG.jpg');
   background-size: cover;  /* ให้ภาพครอบคลุมพื้นที่ของหน้าจอ */
   background-position: center center;  /* ตั้งตำแหน่งภาพไว้ที่กลาง */
   background-repeat: no-repeat;  /* ห้ามซ้ำภาพ */
@@ -237,4 +238,16 @@ html, body {
 h1.text-white {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้กับข้อความ */
 }
+
+h1 {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ข้อความ */
+}
+
+.chart-container {
+  display: flex;              /* ใช้ Flexbox */
+  justify-content: center;    /* จัดให้อยู่กึ่งกลางในแนวนอน */
+  align-items: center;        /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+  height: 100%;               /* ให้เนื้อหาเต็มความสูงของการ์ด */
+}
+
 </style>

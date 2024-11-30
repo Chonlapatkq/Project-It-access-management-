@@ -62,7 +62,20 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/bd.jpg');
+  background-image: url('@/assets/bc.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+<style scoped>
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/assets/bc.jpg');
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -73,8 +86,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.2); /* โปร่งใส */
-  color: #fff; /* ทำให้ตัวหนังสือเป็นสีขาว */
+  background: rgba(255, 255, 255, 0.8); /* เปลี่ยนพื้นหลังให้โปร่งใสน้อยลง */
+  color: #000; /* เปลี่ยนสีตัวหนังสือใน login-container เป็นสีดำ */
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -85,8 +98,8 @@ export default {
 button {
   width: 100%;
   padding: 1rem;
-  background-color: #000;
-  color: #fff;
+  background-color: #000; /* พื้นหลังปุ่มสีดำ */
+  color: #fff; /* ตัวอักษรในปุ่มสีขาว */
   border: none;
   border-radius: 5px;
   font-size: 1.1rem;
@@ -101,7 +114,7 @@ button:hover {
 
 .form-label {
   font-size: 1.1rem;
-  color: #fff; /* ปรับสีตัวหนังสือเป็นขาว */
+  color: #000; /* ตัวอักษรใน label เป็นสีดำ */
 }
 
 .form-check {
@@ -109,22 +122,25 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: #000; /* ตัวอักษร checkbox เป็นสีดำ */
 }
 
 .mb-3 {
   margin-bottom: 1.5rem;
+  color: #000; /* ข้อความภายใน margin-bottom เป็นสีดำ */
 }
 
 .mt-3 {
   margin-top: 1.5rem;
+  color: #000; /* ข้อความภายใน margin-top เป็นสีดำ */
 }
 
 a {
-  color: #fff; /* ทำให้ลิงก์เป็นสีขาว */
+  color: #007bff; /* เปลี่ยน Register here เป็นสีฟ้า (มาตรฐาน Bootstrap) */
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* เพิ่มเส้นใต้เมื่อ hover */
 }
 </style>

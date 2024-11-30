@@ -108,7 +108,7 @@ html, body {
   left: 0;
   width: 100%;
   min-height: 100%;     
-  background-image: url('@/assets/bh.jpg');
+  background-image: url('@/assets/GG.jpg');
   background-size: cover;  
   background-position: center center;  
   background-repeat: no-repeat;  
@@ -117,7 +117,6 @@ html, body {
 
 /* หัวข้อ */
 h1.text-center {
-  color: white; /* เปลี่ยนสีข้อความให้เป็นขาว */
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ข้อความ */
 }
 
