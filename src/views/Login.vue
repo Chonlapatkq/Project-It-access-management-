@@ -18,9 +18,7 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
-        <div class="mt-3">
-          <p>Don't have an account? <a href="/register">Register here</a></p>
-        </div>
+        
       </form>
     </div>
   </div>

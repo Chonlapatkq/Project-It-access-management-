@@ -48,8 +48,7 @@
             </li>
             <!-- แสดงปุ่ม Login และ Sign Up ถ้าผู้ใช้ยังไม่ได้ล็อกอิน -->
             <li class="nav-item" v-else>
-              <router-link to="/login" class="btn btn-primary me-2">Login</router-link>
-              <router-link to="/signup" class="btn btn-secondary">Sign Up</router-link>
+              <router-link to="/login" class="btn btn-primary me-2">Admin Login</router-link>
             </li>
           </div>
         </div>
