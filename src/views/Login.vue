@@ -18,7 +18,6 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
-        
       </form>
     </div>
   </div>
@@ -66,7 +65,6 @@ export default {
   z-index: -1;
 }
 
-<style scoped>
 .background-image {
   position: fixed;
   top: 0;

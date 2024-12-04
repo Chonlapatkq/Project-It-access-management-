@@ -1,16 +1,16 @@
 <template>
   <div class="background-image">
     <div class="container mt-5">
-    <h1 class="text-center mb-4">รายการสินค้า</h1>
+    <h1 class="text-center mb-4">รายการสินทรัพย์</h1>
     <table class="table table-bordered">
       <thead class="table-dark">
         <tr>
           <th>#</th>
           <th>Asset ID</th>
           <th>Serial Number</th>
-          <th>ชื่อสินค้า</th>
+          <th>ชื่อสินทรัพย์</th>
           <th>ราคา (บาท)</th>
-          <th>รุ่นสินค้า</th>
+          <th>รุ่นสินทรัพย์</th>
           <th>การจัดการ</th>
         </tr>
       </thead>
@@ -31,7 +31,7 @@
           </td>
         </tr>
         <tr v-if="products.length === 0">
-          <td colspan="8" class="text-center">ยังไม่มีข้อมูลสินค้า</td>
+          <td colspan="8" class="text-center">ยังไม่มีข้อมูลสินทรัพย์</td>
         </tr>
       </tbody>
     </table>
@@ -76,7 +76,7 @@ export default {
     },
     deleteProduct(index) {
       const products = this.products;
-      if (confirm('คุณต้องการลบสินค้านี้ใช่ไหม?')) {
+      if (confirm('คุณต้องการลบสินทรัพย์นี้ใช่ไหม?')) {
         products.splice(index, 1);
         localStorage.setItem('products', JSON.stringify(products));
         this.$router.go(0); // รีเฟรชหน้าใหม่
@@ -173,7 +173,7 @@ button.btn-danger:hover {
   background-color: #c82333;
 }
 
-/* เพิ่มแถวในกรณีที่ไม่มีข้อมูลสินค้า */
+/* เพิ่มแถวในกรณีที่ไม่มีข้อมูลสินทรัพย์ */
 tr.v-if-no-data td {
   text-align: center;
   font-size: 16px;

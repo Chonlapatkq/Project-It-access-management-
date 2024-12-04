@@ -1,10 +1,10 @@
 <template>
   <div class="background-image">
     <div class="assetinventory-container">
-      <h1 class="text-center mb-4">ระบบลงทะเบียนสินค้า</h1> <!-- เปลี่ยนสีข้อความเป็นขาว -->
+      <h1 class="text-center mb-4">ระบบลงทะเบียนสินทรัพย์</h1> <!-- เปลี่ยนสีข้อความเป็นขาว -->
 
     <div class="card p-4 mb-4">
-      <h4 class="card-title mb-3">{{ productIndex !== null ? 'แก้ไขสินค้า' : 'เพิ่มสินค้าใหม่' }}</h4>
+      <h4 class="card-title mb-3">{{ productIndex !== null ? 'แก้ไขสินทรัพย์' : 'เพิ่มสินทรัพย์ใหม่' }}</h4>
       <form @submit.prevent="addOrEditProduct">
         <div class="row">
           <!-- Asset ID -->
@@ -33,7 +33,7 @@
 
           <!-- Name -->
           <div class="col-md-6">
-            <label for="productName" class="form-label">ชื่อสินค้า</label>
+            <label for="productName" class="form-label">ชื่อสินทรัพย์</label>
             <input
               type="text"
               id="productName"
@@ -57,7 +57,7 @@
 
           <!-- Model -->
           <div class="col-md-6">
-            <label for="productModel" class="form-label">รุ่นสินค้า</label>
+            <label for="productModel" class="form-label">รุ่นสินทรัพย์</label>
             <input
               type="text"
               id="productModel"
@@ -115,7 +115,7 @@ export default {
       }
 
       localStorage.setItem('products', JSON.stringify(products));
-      this.$router.push('/lifecycle');
+      this.$router.push('/list');
     },
 
    

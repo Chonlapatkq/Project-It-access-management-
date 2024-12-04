@@ -18,26 +18,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
   <li class="nav-item">
-    <router-link to="/" class="nav-link">Home</router-link>
+    <router-link to="/" class="nav-link">Dashboard</router-link>
   </li>
   <!-- แสดงเมนูอื่นเมื่อผู้ใช้ล็อกอิน -->
   <template v-if="isLoggedIn">
     <li class="nav-item">
-      <router-link to="/assets" class="nav-link">Assets</router-link>
+      <router-link to="/register" class="nav-link">Asset Register</router-link>
     </li>
     <li class="nav-item">
-      <router-link to="/lifecycle" class="nav-link">Lifecycle</router-link>
+      <router-link to="/list" class="nav-link">Asset List</router-link>
     </li>
   </template>
 </ul>
-
-
-         <!-- Content (เนื้อหาหลัก) -->
-    <div :class="{'content': true, 'content-shifted': sidebarOpen}">
-      <button class="btn btn-dark" @click="toggleSidebar" id="toggle-btn">
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
 
           <!-- Login/Logout Button (แสดงปุ่มตามสถานะการล็อกอิน) -->
           <div class="navbar-nav ms-auto">
@@ -54,40 +46,6 @@
         </div>
       </div>
     </nav>
-
-    <!-- Sidebar (แถบด้านข้าง) -->
-    <div v-if="!isLoginPage" :class="{'sidebar': true, 'sidebar-open': sidebarOpen}">
-      <ul class="list-unstyled">
-        <li class="m-2">
-          <router-link to="/" class="text-white"><i class="bi bi-house-door"></i></router-link>
-        </li>
-        <li class="m-2">
-          <router-link to="/assets" class="text-white"><i class="bi bi-laptop"></i></router-link>
-        </li>
-        <li class="m-2">
-          <router-link to="/lifecycle" class="text-white"><i class="bi bi-calendar"></i></router-link>
-        </li>
-        <li class="m-2">
-          <router-link to="/tracking" class="text-white"><i class="bi bi-geo-alt"></i></router-link>
-        </li>
-        <li class="m-2">
-          <router-link to="/user-management" class="text-white"><i class="bi bi-person"></i></router-link>
-        </li>
-        <li class="m-2">
-          <router-link to="/documentation" class="text-white"><i class="bi bi-file-earmark-text"></i></router-link>
-        </li>
-        <li class="m-2">
-          <router-link to="/audit-trail" class="text-white"><i class="bi bi-file-lock"></i></router-link>
-        </li>
-        <li class="m-2">
-          <router-link to="/maintenance" class="text-white"><i class="bi bi-tools"></i></router-link>
-        </li>
-      </ul>
-
-
-      
-    </div>
-
     
   </div>
 </template>

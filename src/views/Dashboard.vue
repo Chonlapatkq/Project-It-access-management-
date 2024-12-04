@@ -1,10 +1,10 @@
 <template>
   <div class="background-image">
     <div class="container mt-5">
-      <h1 class="text-center mb-4 text-black">รายการสินค้า</h1>
+      <h1 class="text-center mb-4 text-black">รายการสินทรัพย์</h1>
 
       <div class="row mb-4">
-  <!-- การ์ดแสดงข้อมูลราคาสินค้า -->
+  <!-- การ์ดแสดงข้อมูลราคาสินทรัพย์ -->
   <div class="col-md-6">
     <div class="card">
       <div class="card-header text-center">ข้อมูลราคา</div>
@@ -14,10 +14,10 @@
     </div>
   </div>
 
-  <!-- การ์ดแสดงข้อมูลจำนวนสินค้า -->
+  <!-- การ์ดแสดงข้อมูลจำนวนสินทรัพย์ -->
   <div class="col-md-6">
     <div class="card">
-      <div class="card-header text-center">ข้อมูลจำนวนสินค้า</div>
+      <div class="card-header text-center">ข้อมูลจำนวนสินทรัพย์</div>
       <div class="card-body chart-container">
         <canvas id="quantityPieChart" style="max-width: 400px; max-height: 400px;"></canvas>
       </div>
@@ -25,8 +25,7 @@
   </div>
 </div>
 
-
-      <!-- ตารางแสดงสินค้าตามลำดับ -->
+      <!-- ตารางแสดงสินทรัพย์ตามลำดับ -->
       <div v-if="products.length > 0">
         <table class="table table-bordered">
           <thead class="table-dark">
@@ -34,9 +33,9 @@
               <th>#</th>
               <th>Asset ID</th>
               <th>Serial Number</th>
-              <th>ชื่อสินค้า</th>
+              <th>ชื่อสินทรัพย์</th>
               <th>ราคา (บาท)</th>
-              <th>รุ่นสินค้า</th>
+              <th>รุ่นสินทรัพย์</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +48,7 @@
               <td>{{ product.model }}</td>
             </tr>
             <tr v-if="products.length === 0">
-              <td colspan="8" class="text-center">ยังไม่มีข้อมูลสินค้า</td>
+              <td colspan="8" class="text-center">ยังไม่มีข้อมูลสินทรัพย์</td>
             </tr>
           </tbody>
         </table>
@@ -234,7 +233,7 @@ html, body {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1); /* ปรับเงาให้ชัดขึ้น */
 }
 
-/* เงาให้กับข้อความ "รายการสินค้า" */
+/* เงาให้กับข้อความ "รายการสินทรัพย์" */
 h1.text-white {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้กับข้อความ */
 }
